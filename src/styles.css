@@ -16,6 +16,7 @@ li {
   margin: 0 20px 0 0;
 }
 a {
+  background-color: transparent;
   text-decoration: none;
 }
 .container {
@@ -69,4 +70,8 @@ a {
 #celcius-link,
 #fahrenheit-link {
   color: black;
+}
+small {
+  margin-left: 20px;
+  font-weight: 400;
 }

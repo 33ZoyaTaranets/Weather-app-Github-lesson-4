@@ -1,4 +1,3 @@
-alert("!!!");
 //HW 4 feature 1
 let currentTime = new Date();
 let loadDay = document.querySelector(".current-day");
@@ -45,23 +44,28 @@ loadDay.innerHTML = `${day} ${date}, ${hour}:${minutes}`;
 
 //HW 5-1
 
-function searchCity(event) {
-  event.preventDefault();
-  let enterCity = document.querySelector("#city-input");
+function searchCity(enterCity) {
   let dataCity = document.querySelector("#city");
-  if (enterCity.value) {
-    dataCity.innerHTML = enterCity.value;
+  if (enterCity) {
+    dataCity.innerHTML = enterCity;
+
     let apiKey = `acfa3d9add7c7b0dbbb8af556ed317bf`;
-    let city = enterCity.value;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${enterCity}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(showWeather);
   } else {
     dataCity.innerHTML = null;
     alert(`Please enter a city!`);
   }
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let enterCity = document.querySelector("#city-input").value;
+  searchCity(enterCity);
+}
+
 let search = document.querySelector("#search-city");
-search.addEventListener("submit", searchCity);
+search.addEventListener("submit", handleSubmit);
 
 function showWeather(response) {
   console.log(response);
@@ -115,3 +119,5 @@ function navigatorLoc(event) {
 
 let currentCity = document.querySelector("#current-location-button");
 currentCity.addEventListener("click", navigatorLoc);
+
+searchCity(Kyiv);

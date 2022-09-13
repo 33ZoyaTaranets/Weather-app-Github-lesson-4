@@ -44,24 +44,16 @@ loadDay.innerHTML = `${day} ${date}, ${hour}:${minutes}`;
 
 //HW 5-1
 
-function searchCity(enterCity) {
-  let dataCity = document.querySelector("#city");
-  if (enterCity) {
-    dataCity.innerHTML = enterCity;
-
-    let apiKey = `acfa3d9add7c7b0dbbb8af556ed317bf`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${enterCity}&units=metric&appid=${apiKey}`;
-    axios.get(apiUrl).then(showWeather);
-  } else {
-    dataCity.innerHTML = null;
-    alert(`Please enter a city!`);
-  }
+function searchCity(city) {
+  let apiKey = `acfa3d9add7c7b0dbbb8af556ed317bf`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  let enterCity = document.querySelector("#city-input").value;
-  searchCity(enterCity);
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
 }
 
 let search = document.querySelector("#search-city");
@@ -88,7 +80,7 @@ function showWeather(response) {
   });
 
   celsiusTempr.addEventListener("click", function () {
-    dataDegrees.innerHTML = temperature;
+    dataDegrees.innerHTML = `${temperature}`;
   });
 
   let dataHumidity = document.querySelector("#data-humidity");
@@ -120,4 +112,4 @@ function navigatorLoc(event) {
 let currentCity = document.querySelector("#current-location-button");
 currentCity.addEventListener("click", navigatorLoc);
 
-searchCity(Kyiv);
+searchCity("Kyiv");

@@ -25,123 +25,128 @@
 
   <body>
     <div class="container">
-    <div
-      class="container border border-secondary border-opacity-25 rounded shadow"
-    >
-      <ul>
-        <li>
-          <a href="kyiv.html" 
-          target="_blank"           
-            >Kyiv</a
-          >
-        </li>
-        <li>
-          <a
-            href="poltava.html"
-            target="_blank"            
-            >Poltava</a
-          >
-        </li>
-        <li>
-          <a
-            href="istanbul.html"
-            target="_blank"            
-            >Istanbul</a
-          >
-        </li>
-        <li>
-          <a
-            href="london.html"
-            target="_blank"            
-            >London</a
-          >
-        </li>
-        <li>
-          <a
-            href="lviv.html"
-            target="_blank"            
-            >Lviv</a
-          >
-        </li>
-      </ul>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <ul>
+            <li>
+                  <a href="kyiv.html" 
+                  target="_blank"           
+                    >Kyiv</a
+                  >
+            </li>
+            <li>
+                  <a
+                    href="poltava.html"
+                    target="_blank"            
+                    >Poltava</a
+                  >
+            </li>
+            <li>
+                  <a
+                    href="istanbul.html"
+                    target="_blank"            
+                    >Istanbul</a
+                  >
+            </li>
+            <li>
+                  <a
+                    href="london.html"
+                    target="_blank"            
+                    >London</a
+                  >
+            </li>
+            <li>
+                  <a
+                    href="lviv.html"
+                    target="_blank"            
+                    >Lviv</a
+                  >
+            </li>
+          </ul>
 
-      <form id="search-city">
-        <div class="row">
-          <div class="col-6">
-            <div class="form-group">
-              <input
-                type="text"
-                placeholder="Enter a city"
-                class="form-control"
-                id="city-input"
-                autofocus
-              />
+          <form id="search-city">
+            <div class="row search">
+              <div class="col-6">
+                <div class="form-group">
+                  <input
+                        type="text"
+                        placeholder="Enter a city"
+                        class="form-control"
+                        id="city-input"
+                        autofocus
+                  />
+                </div>
+              </div>
+                
+              <div class="col-3">
+                  <input type="submit" value="Search" class="btn btn-primary" id="searchButton" />
+              </div>
+
+              <div class="col-3">
+                  <button class="btn btn-success" id="current-location-button">My City</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="row current-box">
+            <div class="col-6">
+                  <h1 class="current-city" id="city">Sumy</h1>
+                  <div class="current-day">Monday <span>18:11</span></div>
+            </div>
+                
+            <div class="col-3 current-temp">                  
+              <span id="tempr">29</span>
+              <span class="units">
+                    <a href="#" id="celcius-link">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+                    
+                    
+            </div>
+
+            <div class="col-3 current-other">        
+              <div class="current-humidity">
+                    Humidity: <span id="data-humidity">48</span>%
+              </div>
+              <div class="current-wind">Wind: <span id="data-wind">2</span> km/h
+              </div>
+              <div id="data-img">☀️                
+              </div>
             </div>
           </div>
-        <div class="col-3">
-          <input type="submit" value="Search" class="btn btn-primary" id="searchButton" />
-        </div>
-        <div class="col-3">
-          <button class="btn btn-success" id="current-location-button">My City</button>
-        </div>
-      </div>
-      </form>
-
-      <div class="row current-box">
-        <div class="col-6">
-          <h1 class="current-city" id="city">Sumy</h1>
-          <div class="current-day">Monday <span>18:11</span></div>
-        </div>
-        <div class="col-3 current-temp">                  
-            <span id="tempr">29</span>
-            <span class="units">
-            <a href="#" id="celcius-link">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
-            </span>
             
-            
-        </div>
-        <div class="col-3 current-other">
-         
-         <div class="current-humidity">
-            Humidity: <span id="data-humidity">48</span>%
-          </div>
-          <div class="current-wind">Wind: <span id="data-wind">2</span> km/h</div>
-          <div id="data-img">☀️</div>
-        </div>
-      </div>
-    
-    <div class="row current-next">
-        <div class="col-2">
-          <h3 class="day">Tue</h3>
-          <h3 class="temp"><div>⛅</div>21&#8451;</h3>
-        </div>
-        <div class="col-2">
-            <h3 class="day">Wed</h3>
-           <h3 class="temp"><div>🌧️</div>19&#8451;</h3>
-          </div>
-          <div class="col-2">
-              <h3 class="day">Thu</h3>
-              <h3 class="temp"><div>⛅</div>22&#8451;</h3>
+          <div class="row current-next">
+            <div class="col-2">
+                  <h3 class="day">Tue</h3>
+                  <h3 class="temp"><div>⛅</div>21&#8451;</h3>
             </div>
             <div class="col-2">
-                <h3 class="day">Fri</h3>
-                <h3 class="temp"><div>☁️</div>21&#8451;</3>
-              </div>
-              <div class="col-2">
+                  <h3 class="day">Wed</h3>
+                  <h3 class="temp"><div>🌧️</div>19&#8451;</h3>
+            </div>
+            <div class="col-2">
+                  <h3 class="day">Thu</h3>
+                  <h3 class="temp"><div>⛅</div>22&#8451;</h3>
+            </div>
+            <div class="col-2">
+                  <h3 class="day">Fri</h3>
+                  <h3 class="temp"><div>☁️</div>21&#8451;</3>
+            </div>
+            <div class="col-2">
                   <h3 class="day">Sat</h3>
                   <h3 class="temp"><div>☀️</div>26&#8451;</h3>
-                </div>
-                <div class="col-2">
-                    <h3 class="day">Sun</h3>
-                    <h3 class="temp"><div>☀️</div>28&#8451;</h3>
-                  </div>
-      </div>
-    </div>
-        <div class="small">
-    <a href="https://github.com/33ZoyaTaranets/Weather-app-Github-lesson-4" target="_blank">Open-source code</a>
-    , by Zoia Taranets
+            </div>
+            <div class="col-2">
+                  <h3 class="day">Sun</h3>
+                  <h3 class="temp"><div>☀️</div>28&#8451;</h3>
+            </div>
+          </div>
         </div>
+          <small>
+            <a href="https://github.com/33ZoyaTaranets/Weather-app-Github-lesson-4" target="_blank">Open-source code</a>
+            by Zoia Taranets
+          </small>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>

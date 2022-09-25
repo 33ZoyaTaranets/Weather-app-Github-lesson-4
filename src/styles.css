@@ -41,6 +41,11 @@ a {
 .search {
   margin: 0;
 }
+
+.btn {
+  width: 140px;
+  box-shadow: 8px 12px 18px 1px #dadde1;
+}
 .col-6 {
   padding: 0 15px 0 0;
 }

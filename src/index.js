@@ -67,21 +67,9 @@ function showWeather(response) {
   let dataCity = document.querySelector("#city");
   dataCity.innerHTML = `${city}, ${country}`;
 
-  let dataDegrees = document.querySelector("#tempr");
-  let temperature = Math.round(response.data.main.temp);
-  dataDegrees.innerHTML = `${temperature}`;
-
-  let celsiusTempr = document.querySelector("#celcius-link");
-  let fahrenheitTempr = document.querySelector("#fahrenheit-link");
-  let celciusToFahrenheit = Math.round((temperature * 9) / 5 + 32);
-
-  fahrenheitTempr.addEventListener("click", function () {
-    dataDegrees.innerHTML = celciusToFahrenheit;
-  });
-
-  celsiusTempr.addEventListener("click", function () {
-    dataDegrees.innerHTML = `${temperature}`;
-  });
+  let temperatureElement = document.querySelector("#tempr");
+  celsiusTempr = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celsiusTempr);
 
   let dataHumidity = document.querySelector("#data-humidity");
   let humidity = Math.round(response.data.main.humidity);
@@ -118,5 +106,31 @@ function navigatorLoc(event) {
 
 let currentCity = document.querySelector("#current-location-button");
 currentCity.addEventListener("click", navigatorLoc);
+
+function showFahrenheitTempr(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#tempr");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTempr = (celsiusTempr * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTempr);
+}
+
+function showCelsiusTempr(event) {
+  event.preventDefault();
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#tempr");
+  temperatureElement.innerHTML = Math.round(celsiusTempr);
+}
+
+let celsiusTempr = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTempr);
+
+let celsiusLink = document.querySelector("#celcius-link");
+celsiusLink.addEventListener("click", showCelsiusTempr);
 
 searchCity("Kyiv");

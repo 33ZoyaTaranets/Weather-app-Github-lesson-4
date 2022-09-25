@@ -69,6 +69,15 @@ a {
   font-size: 52px;
   font-weight: 500;
 }
+
+.current-temp .active {
+  color: rgb(33, 33, 33);
+}
+
+.current-temp .active:hover {
+  text-decoration: none;
+}
+
 .current-other,
 .current-day {
   font-size: 18px;
@@ -88,8 +97,4 @@ a {
 #data-img {
   font-size: 18px;
   color: gray;
-}
-#celcius-link,
-#fahrenheit-link {
-  color: black;
 }

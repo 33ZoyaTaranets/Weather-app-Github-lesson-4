@@ -94,6 +94,13 @@ function showWeather(response) {
   let dataImg = document.querySelector("#data-img");
   let img = response.data.weather[0].main;
   dataImg.innerHTML = `${img}`;
+
+  let dataIcon = document.querySelector("#icon");
+  dataIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  dataIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function retrievePosition(position) {

@@ -2,11 +2,7 @@ body {
   font-family: "Roboto Serif", serif;
   background-color: #f8fdff;
 }
-h3 {
-  margin: 0;
-  font-size: 18px;
-  color: gray;
-}
+
 ul {
   list-style: none;
   padding: 0;
@@ -86,15 +82,33 @@ a {
   color: grey;
 }
 
-.current-next {
-  margin-top: 30px;
-}
 .units {
   position: absolute;
   top: 15%;
   font-size: 14px;
   text-align: left;
 }
+
+.current-forecast {
+  margin-top: 25px;
+  text-align: center;
+  color: gray;
+}
+
+.forecast-day {
+  margin: 0;
+  font-size: 18px;
+}
+
+.forecast-temperatures {
+  margin: 0;
+  font-size: 14px;
+}
+
+.forecast-temp-max {
+  color: black;
+}
+
 #data-img {
   font-size: 18px;
   color: gray;

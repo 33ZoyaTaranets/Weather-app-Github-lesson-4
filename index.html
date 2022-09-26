@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>    
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" 
-    content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible"
-    content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
-    crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/styles.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <title>Weather from ZT</title>
   </head>
 
@@ -29,38 +32,19 @@
         <div class="weather-app">
           <ul>
             <li>
-                  <a href="kyiv.html" 
-                  target="_blank"           
-                    >Kyiv</a
-                  >
+              <a href="kyiv.html" target="_blank">Kyiv</a>
             </li>
             <li>
-                  <a
-                    href="poltava.html"
-                    target="_blank"            
-                    >Poltava</a
-                  >
+              <a href="poltava.html" target="_blank">Poltava</a>
             </li>
             <li>
-                  <a
-                    href="istanbul.html"
-                    target="_blank"            
-                    >Istanbul</a
-                  >
+              <a href="istanbul.html" target="_blank">Istanbul</a>
             </li>
             <li>
-                  <a
-                    href="london.html"
-                    target="_blank"            
-                    >London</a
-                  >
+              <a href="london.html" target="_blank">London</a>
             </li>
             <li>
-                  <a
-                    href="lviv.html"
-                    target="_blank"            
-                    >Lviv</a
-                  >
+              <a href="lviv.html" target="_blank">Lviv</a>
             </li>
           </ul>
 
@@ -69,87 +53,86 @@
               <div class="col-6">
                 <div class="form-group">
                   <input
-                        type="text"
-                        placeholder="Enter a city"
-                        class="form-control"
-                        id="city-input"
-                        autofocus
+                    type="text"
+                    placeholder="Enter a city"
+                    class="form-control"
+                    id="city-input"
+                    autofocus
                   />
                 </div>
               </div>
-                
+
               <div class="col-3">
-                  <input type="submit" value="Search" class="btn btn-primary" id="searchButton" />
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary"
+                  id="search-button"
+                />
               </div>
 
               <div class="col-3">
-                  <button class="btn btn-success" id="current-location-button">My City</button>
+                <button class="btn btn-success" id="current-location-button">
+                  My City
+                </button>
               </div>
             </div>
           </form>
 
           <div class="row current-box">
             <div class="col-4">
-                  <h1 class="current-city" id="city"></h1>
-                  <div class="current-day"> <span></span></div>
+              <h1 class="current-city" id="city"></h1>
+              <div class="current-day"><span></span></div>
             </div>
 
             <div class="col-2">
-               <img src="" alt="Clear" id="icon" class="float-left" />   
+              <img src="" alt="Clear" id="icon" class="float-left" />
             </div>
-                
-            <div class="col-3 current-temp">                  
+
+            <div class="col-3 current-temp">
               <span id="tempr"></span>
               <span class="units">
-                    <a href="#" id="celcius-link" class="active">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a>
+                <a href="#" id="celcius-link" class="active">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
               </span>
-                    
-                    
             </div>
 
-            <div class="col-3 current-other">        
+            <div class="col-3 current-other">
               <div class="current-humidity">
-                    Humidity: <span id="data-humidity"></span>%
+                Humidity: <span id="data-humidity"></span>%
               </div>
-              <div class="current-wind">Wind: <span id="data-wind"></span> km/h
+              <div class="current-wind">
+                Wind: <span id="data-wind"></span> km/h
               </div>
-              <div id="data-img">                
-              </div>
+              <div id="data-img"></div>
             </div>
           </div>
-            
-          <div class="row current-next">
-            <div class="col-2">
-                  <h3 class="day">Tue</h3>
-                  <h3 class="temp"><div>⛅</div>21&#8451;</h3>
-            </div>
-            <div class="col-2">
-                  <h3 class="day">Wed</h3>
-                  <h3 class="temp"><div>🌧️</div>19&#8451;</h3>
-            </div>
-            <div class="col-2">
-                  <h3 class="day">Thu</h3>
-                  <h3 class="temp"><div>⛅</div>22&#8451;</h3>
-            </div>
-            <div class="col-2">
-                  <h3 class="day">Fri</h3>
-                  <h3 class="temp"><div>☁️</div>21&#8451;</3>
-            </div>
-            <div class="col-2">
-                  <h3 class="day">Sat</h3>
-                  <h3 class="temp"><div>☀️</div>26&#8451;</h3>
-            </div>
-            <div class="col-2">
-                  <h3 class="day">Sun</h3>
-                  <h3 class="temp"><div>☀️</div>28&#8451;</h3>
+
+          <div class="current-forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="forecast-day">Tue</div>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="forecast-temperatures">
+                  <span class="forecast-temp-max">18 °C</span>
+                  <span class="forecast-temp-min">12 °C</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-          <small>
-            <a href="https://github.com/33ZoyaTaranets/Weather-app-Github-lesson-4" target="_blank">Open-source code</a>
-            by Zoia Taranets
-          </small>
+        <small>
+          <a
+            href="https://github.com/33ZoyaTaranets/Weather-app-Github-lesson-4"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Zoia Taranets
+        </small>
       </div>
     </div>
     <script src="src/index.js"></script>

@@ -23,26 +23,34 @@ if (minutes < 10) {
 }
 loadDay.innerHTML = `${day} ${date}, ${hour}:${minutes}`;
 
-//HW 4 feature 2
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = `<div class="row">`;
 
-//HW 4 feature 3
-//function showUnitC(event) {
-//  event.preventDefault();
-//  let currentTemperatureC = document.querySelector("#tempr");
-//  currentTemperatureC.innerHTML = 29;
-//}
-//let celsiusTempr = document.querySelector("#celcius-link");
-//celsiusTempr.addEventListener("click", showUnitC);
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-day">${day}</div>
+          <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=""
+                  width="42"
+          />
+          <div class="forecast-temperatures">
+            <span class="forecast-temp-max">18 °C</span>
+            <span class="forecast-temp-min">12 °C</span>
+          </div>
+      </div>
+    
+  `;
+  });
 
-//function showUnitF(event) {
-//  event.preventDefault();
-//  let currentTemperatureF = document.querySelector("#tempr");
-//  currentTemperatureF.innerHTML = Math.round((29 * 9) / 5 + 32);
-//}
-///let fahrenheitTempr = document.querySelector("#fahrenheit-link");
-//fahrenheitTempr.addEventListener("click", showUnitF);
-
-//HW 5-1
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function searchCity(city) {
   let apiKey = `acfa3d9add7c7b0dbbb8af556ed317bf`;
@@ -134,3 +142,4 @@ let celsiusLink = document.querySelector("#celcius-link");
 celsiusLink.addEventListener("click", showCelsiusTempr);
 
 searchCity("Kyiv");
+showForecast();

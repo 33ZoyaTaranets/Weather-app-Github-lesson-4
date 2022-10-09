@@ -79,7 +79,7 @@ let search = document.querySelector("#search-city");
 search.addEventListener("submit", handleSubmit);
 
 function showWeather(response) {
-  console.log(response);
+  console.log(response.data);
 
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -102,8 +102,8 @@ function showWeather(response) {
   let img = response.data.weather[0].main;
   dataImg.innerHTML = `${img}`;
 
-  let dateElement = document.querySelector(".current-day");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let dataDate = document.querySelector(".current-day");
+  dataDate.innerHTML = formatDate(response.data.dt * 1000);
 
   let dataIcon = document.querySelector("#icon");
   dataIcon.setAttribute(

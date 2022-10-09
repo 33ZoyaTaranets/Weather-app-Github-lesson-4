@@ -69,6 +69,7 @@ a {
 
 .current-temp .active {
   color: rgb(33, 33, 33);
+  cursor: default;
 }
 
 .current-temp .active:hover {

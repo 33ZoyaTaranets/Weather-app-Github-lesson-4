@@ -1,27 +1,28 @@
 //HW 4 feature 1
-let currentTime = new Date();
-let loadDay = document.querySelector(".current-day");
-let daysF = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+function formatDate(timestamp) {
+  let currentTime = new Date(timestamp);
+  let hour = currentTime.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = currentTime.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let daysF = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-let day = daysF[currentTime.getDay()];
-let date = currentTime.getDate();
-let hour = currentTime.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
+  let day = daysF[currentTime.getDay()];
+  let date = currentTime.getDate();
+  return `${day} ${date}, ${hour}:${minutes}`;
 }
-let minutes = currentTime.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-loadDay.innerHTML = `${day} ${date}, ${hour}:${minutes}`;
 
 function showForecast(response) {
   console.log(response.data.daily);
@@ -100,6 +101,9 @@ function showWeather(response) {
   let dataImg = document.querySelector("#data-img");
   let img = response.data.weather[0].main;
   dataImg.innerHTML = `${img}`;
+
+  let dateElement = document.querySelector(".current-day");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   let dataIcon = document.querySelector("#icon");
   dataIcon.setAttribute(
